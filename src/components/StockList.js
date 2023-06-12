@@ -1,12 +1,15 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "../style/css/StockList.css";
 import finnhub from "../apis/finnhub";
 import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai";
+import { Context } from "../context/Context";
+import { useNavigate } from "react-router-dom";
 
 const StockList = () => {
   const [stock, setStock] = useState([]);
-  const [list, setList] = useState(["GOOGL", "MSFT", "AMZN"]);
+  const { list } = useContext(Context);
+  const navigate = useNavigate();
 
   const changeColor = (change) => {
     return change > 0 ? { color: "green" } : { color: "red" };
@@ -38,7 +41,11 @@ const StockList = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [list]);
+
+  const handleStockSelect = (symbol) => {
+    navigate(`detail/${symbol}`);
+  };
 
   return (
     <div className="stock-list">
@@ -58,7 +65,10 @@ const StockList = () => {
         <tbody>
           {stock.map((stock) => {
             return (
-              <tr key={stock.symbol}>
+              <tr
+                key={stock.symbol}
+                onClick={() => handleStockSelect(stock.symbol)}
+              >
                 <th>{stock.symbol ? stock.symbol : "-"}</th>
                 <td>{stock.data.c ? stock.data.c : "-"}</td>
                 <td style={changeColor(stock.data.d)}>

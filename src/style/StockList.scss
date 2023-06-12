@@ -1,4 +1,5 @@
 .stock-list {
+  margin-top: 100px;
   table {
     text-align: left;
     border-collapse: collapse;
@@ -9,6 +10,11 @@
     th,
     td {
       padding: 8px 20px;
+    }
+    tbody {
+      tr {
+        cursor: pointer;
+      }
     }
   }
 }
