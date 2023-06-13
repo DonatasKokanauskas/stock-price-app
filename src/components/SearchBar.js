@@ -79,6 +79,9 @@ const SearchBar = () => {
                 onClick={() => {
                   addStock(obj.symbol);
                   setSearch("");
+                  inputLabel.style.top = "13px";
+                  inputLabel.style.fontSize = "0.7rem";
+                  inputLabel.style.color = "#757575";
                 }}
               >
                 {obj.description} ({obj.symbol})

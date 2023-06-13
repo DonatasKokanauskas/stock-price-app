@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 const StockList = () => {
   const [stock, setStock] = useState([]);
-  const { list } = useContext(Context);
+  const { list, deleteStock } = useContext(Context);
   const navigate = useNavigate();
 
   const changeColor = (change) => {
@@ -82,7 +82,18 @@ const StockList = () => {
                 <td>{stock.data.h ? stock.data.h : "-"}</td>
                 <td>{stock.data.l ? stock.data.l : "-"}</td>
                 <td>{stock.data.o ? stock.data.o : "-"}</td>
-                <td>{stock.data.pc ? stock.data.pc : "-"}</td>
+                <td>
+                  {stock.data.pc ? stock.data.pc : "-"}{" "}
+                  <button
+                    className="remove-button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      deleteStock(stock.symbol);
+                    }}
+                  >
+                    Remove
+                  </button>
+                </td>
               </tr>
             );
           })}

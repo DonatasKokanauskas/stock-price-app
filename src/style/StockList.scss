@@ -14,6 +14,32 @@
     tbody {
       tr {
         cursor: pointer;
+
+        .remove-button {
+          visibility: hidden;
+          margin-left: 15px;
+          border: 1px solid #dc3545;
+          padding: 6px;
+          border-radius: 5px;
+          background-color: #dc3545;
+          color: #ffffff;
+          cursor: pointer;
+          transition: background-color 0.25s, color 0.25s, outline 0.1s;
+        }
+        .remove-button:hover {
+          background-color: #c9302c;
+          color: #ffffff;
+        }
+
+        .remove-button:focus {
+          outline: 3px solid lightcoral;
+        }
+      }
+      tr:hover {
+        background-color: rgb(240, 240, 240);
+        .remove-button {
+          visibility: visible;
+        }
       }
     }
   }

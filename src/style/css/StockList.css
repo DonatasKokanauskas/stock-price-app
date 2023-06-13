@@ -16,3 +16,27 @@
 .stock-list table tbody tr {
   cursor: pointer;
 }
+.stock-list table tbody tr .remove-button {
+  visibility: hidden;
+  margin-left: 15px;
+  border: 1px solid #dc3545;
+  padding: 6px;
+  border-radius: 5px;
+  background-color: #dc3545;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.25s, color 0.25s, outline 0.1s;
+}
+.stock-list table tbody tr .remove-button:hover {
+  background-color: #c9302c;
+  color: #ffffff;
+}
+.stock-list table tbody tr .remove-button:focus {
+  outline: 3px solid lightcoral;
+}
+.stock-list table tbody tr:hover {
+  background-color: rgb(240, 240, 240);
+}
+.stock-list table tbody tr:hover .remove-button {
+  visibility: visible;
+}

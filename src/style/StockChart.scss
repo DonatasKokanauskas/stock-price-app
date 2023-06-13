@@ -1,4 +1,50 @@
 .stock-chart {
-  background-color: rgba(145, 158, 171, 0.04);
-  width: 80vw;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 10%;
+  bottom: 10%;
+
+  .stock-chart__buttons-div {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+.unselected-button {
+  border: 1px solid #007bff;
+  padding: 6px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: #0084ff;
+  cursor: pointer;
+  transition: background-color 0.25s, color 0.25s, outline 0.1s;
+}
+.unselected-button:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.unselected-button:focus {
+  outline: 3px solid lightblue;
+}
+
+.selected-button {
+  border: 1px solid #007bff;
+  padding: 6px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.25s, color 0.25s, outline 0.05s;
+}
+.selected-button:hover {
+  background-color: #0062cc;
+  color: #ffffff;
+}
+
+.selected-button:focus {
+  outline: 3px solid lightblue;
 }
