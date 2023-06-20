@@ -1,5 +1,6 @@
 {
   "name": "stock-price-app",
+  "homepage": "http://stock.donatas-k.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
