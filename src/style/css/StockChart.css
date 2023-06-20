@@ -1,15 +1,11 @@
 .stock-chart {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  left: 10%;
-  right: 10%;
-  top: 10%;
-  bottom: 10%;
+  width: 70vw;
+  margin-top: 50px;
 }
 .stock-chart .stock-chart__buttons-div {
   display: flex;
   gap: 10px;
+  margin-left: 10px;
 }
 
 .unselected-button {
@@ -48,4 +44,30 @@
 
 .selected-button:focus {
   outline: 3px solid lightblue;
+}
+
+@media screen and (min-width: 0px) and (max-width: 599px) {
+  .stock-chart {
+    width: 100vw;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 699px) {
+  .stock-chart {
+    width: 97vw;
+  }
+}
+@media screen and (min-width: 700px) and (max-width: 829px) {
+  .stock-chart {
+    width: 90vw;
+  }
+}
+@media screen and (min-width: 830px) and (max-width: 934px) {
+  .stock-chart {
+    width: 85vw;
+  }
+}
+@media screen and (min-width: 935px) and (max-width: 1095px) {
+  .stock-chart {
+    width: 80vw;
+  }
 }

@@ -50,3 +50,14 @@
 .search-container .search ul li:hover {
   background-color: rgb(218, 218, 223);
 }
+
+@media screen and (min-width: 0px) and (max-width: 829px) {
+  .search-container .search #search-bar {
+    padding: 10px 8px;
+  }
+}
+@media screen and (min-width: 830px) and (max-width: 934px) {
+  .search-container .search #search-bar {
+    padding: 11px 8px;
+  }
+}

@@ -3,15 +3,15 @@ import "../style/css/StockChart.css";
 import Chart from "react-apexcharts";
 
 const StockChart = ({ chartData, symbol }) => {
-  const { day, week, year } = chartData;
-  const [dateFormat, setDateFormat] = useState("24h");
+  const { day, month, year } = chartData;
+  const [dateFormat, setDateFormat] = useState("7d");
 
   const determineTimeFormat = () => {
     switch (dateFormat) {
-      case "24h":
-        return day;
       case "7d":
-        return week;
+        return day;
+      case "1m":
+        return month;
       case "1y":
         return year;
       default:
@@ -72,25 +72,19 @@ const StockChart = ({ chartData, symbol }) => {
 
   return (
     <div className="stock-chart">
-      <Chart
-        options={options}
-        series={series}
-        type="area"
-        width="80%"
-        height="80%"
-      />
+      <Chart options={options} series={series} type="area" width="100%" />
       <div className="stock-chart__buttons-div">
-        <button
-          className={buttonSelect("24h")}
-          onClick={() => setDateFormat("24h")}
-        >
-          24h
-        </button>
         <button
           className={buttonSelect("7d")}
           onClick={() => setDateFormat("7d")}
         >
           7d
+        </button>
+        <button
+          className={buttonSelect("1m")}
+          onClick={() => setDateFormat("1m")}
+        >
+          1m
         </button>
         <button
           className={buttonSelect("1y")}

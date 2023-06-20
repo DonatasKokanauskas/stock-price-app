@@ -31,6 +31,7 @@ const StockList = () => {
             });
           })
         );
+
         setStock(
           responses.map((obj) => {
             return { symbol: obj.config.params.symbol, data: obj.data };
@@ -69,21 +70,23 @@ const StockList = () => {
                 key={stock.symbol}
                 onClick={() => handleStockSelect(stock.symbol)}
               >
-                <th>{stock.symbol ? stock.symbol : "-"}</th>
-                <td>{stock.data.c ? stock.data.c : "-"}</td>
-                <td style={changeColor(stock.data.d)}>
+                <th data-name="Name">{stock.symbol ? stock.symbol : "-"}</th>
+                <td data-name="Last">{stock.data.c ? stock.data.c : "-"}</td>
+                <td data-name="Chg" style={changeColor(stock.data.d)}>
                   {stock.data.d ? stock.data.d : "-"}{" "}
                   {displayIcon(stock.data.d)}
                 </td>
-                <td style={changeColor(stock.data.dp)}>
+                <td data-name="Chg%" style={changeColor(stock.data.dp)}>
                   {stock.data.dp ? stock.data.dp : "-"}{" "}
                   {displayIcon(stock.data.dp)}
                 </td>
-                <td>{stock.data.h ? stock.data.h : "-"}</td>
-                <td>{stock.data.l ? stock.data.l : "-"}</td>
-                <td>{stock.data.o ? stock.data.o : "-"}</td>
-                <td>
+                <td data-name="High">{stock.data.h ? stock.data.h : "-"}</td>
+                <td data-name="Low">{stock.data.l ? stock.data.l : "-"}</td>
+                <td data-name="Open">{stock.data.o ? stock.data.o : "-"}</td>
+                <td data-name="Pclose">
                   {stock.data.pc ? stock.data.pc : "-"}{" "}
+                </td>
+                <td>
                   <button
                     className="remove-button"
                     onClick={(e) => {

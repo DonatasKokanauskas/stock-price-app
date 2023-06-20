@@ -1,9 +1,16 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const Context = createContext();
-
 export const ContextProvider = (props) => {
-  const [list, setList] = useState(["GOOGL", "MSFT", "AMZN"]);
+  const [list, setList] = useState(
+    localStorage.getItem("list")
+      ? localStorage.getItem("list").split(",")
+      : ["GOOGL", "MSFT", "AMZN"]
+  );
+
+  useEffect(() => {
+    localStorage.setItem("list", list);
+  }, [list]);
 
   const addStock = (stock) => {
     if (list.indexOf(stock) === -1) {

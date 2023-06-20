@@ -8,7 +8,7 @@ const SearchBar = () => {
   const [dropDownMenu, setDropDownMenu] = useState();
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
-  const { addStock, deleteStock } = useContext(Context);
+  const { addStock } = useContext(Context);
 
   useEffect(() => {
     setInputLabel(document.getElementById("input-label"));
@@ -23,7 +23,10 @@ const SearchBar = () => {
             q: search,
           },
         });
-        setResults(res.data.result);
+
+        setResults(
+          res.data.result.filter((obj) => obj.symbol.match(/^[A-Za-z]+$/))
+        );
       } catch (error) {
         console.log(error);
       }
